@@ -10,7 +10,7 @@ class Market(db.Model):
     """Market model."""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
-    adress = db.Column(db.String(240), unique=False, nullable=False)
+    address = db.Column(db.String(240), unique=False, nullable=False)
     lat = db.Column(db.Float, nullable=False)
     long = db.Column(db.Float, nullable=False)
 
@@ -46,5 +46,5 @@ class Price(db.Model):
     quantity_per_unit = db.Column(db.Float, unique=False, nullable=True)
 
     def __repr__(self):
-        return f'<{self.__class__.__name__} {self.product!s}: {self.unit_price}>'
+        return f'<{self.__class__.__name__} {self.product!s}: {self.unit_price}/{self.unit}>'
 
